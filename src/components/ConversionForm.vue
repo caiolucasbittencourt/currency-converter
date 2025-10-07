@@ -1,32 +1,32 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 const props = defineProps({
   isLoading: {
     type: Boolean,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const amount = ref('')
-const selectedCurrency = ref('')
+const amount = ref("");
+const selectedCurrency = ref("");
 
-const emit = defineEmits(['convert'])
+const emit = defineEmits(["convert"]);
 
 function handleSubmit() {
   if (!amount.value || !selectedCurrency.value) {
-    alert("Por favor, preencha o valor e selecione uma moeda.")
+    alert("Por favor, preencha o valor e selecione uma moeda.");
     return;
   }
-  emit('convert', { 
-    amount: String(amount.value).replace(',', '.'), 
-    currency: selectedCurrency.value 
-  })
+  emit("convert", {
+    amount: String(amount.value).replace(",", "."),
+    currency: selectedCurrency.value,
+  });
 }
 
 const buttonText = computed(() => {
-  return props.isLoading ? "Carregando cotações..." : "Converter em reais"
-})
+  return props.isLoading ? "Carregando cotações..." : "Converter em reais";
+});
 </script>
 
 <template>
@@ -43,7 +43,7 @@ const buttonText = computed(() => {
       <option value="JPY">Iene Japonês</option>
       <option value="ARS">Peso Argentino</option>
     </select>
-    
+
     <button type="submit" :disabled="isLoading">{{ buttonText }}</button>
   </form>
 </template>
@@ -62,7 +62,8 @@ label {
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
 }
-input, select {
+input,
+select {
   outline: 0;
   color: #f0f0f0;
   background-color: transparent;
@@ -87,10 +88,12 @@ select {
 option {
   background-color: #1a1a1a;
 }
-input::placeholder, select:invalid {
+input::placeholder,
+select:invalid {
   color: #555;
 }
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-bottom-color: #f5f5f5;
 }
 button {
@@ -98,7 +101,7 @@ button {
   background: #f5f5f5;
   color: #000;
   border: none;
-  border-radius: 0;
+  border-radius: 8px;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -110,8 +113,7 @@ button {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 button:hover {
-  background: #ffffff;
-  transform: scale(1.05);
+  background: #e0e0e0;
 }
 button:disabled {
   background-color: #222;
