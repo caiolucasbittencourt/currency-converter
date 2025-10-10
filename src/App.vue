@@ -108,4 +108,10 @@ main {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 500px) {
+  main {
+    width: 100%;
+  }
+}
 </style>
