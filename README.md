@@ -20,3 +20,11 @@ Aplicação para **converter moedas em tempo real** consumindo dados de uma API 
 - Vite
 - JavaScript
 - HTML5 & CSS3
+
+## Instalação
+
+```bash
+git clone https://github.com/caiolucasbittencourt/currency-converter
+cd currency-converter
+npm install
+npm run dev
